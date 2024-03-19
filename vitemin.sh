@@ -41,6 +41,8 @@ echo '  }' >> package.json
 echo '}' >> package.json
 mv "package.json" "$name"
 
+rm -rf .git
+
 # quickstart
 clear
 
