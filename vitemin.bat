@@ -7,13 +7,14 @@ if "%name%"=="" set "name=my-vitemin-project"
 
 REM cloning template
 git clone https://github.com/zacchellodev/vitemin-template.git
-move "vitemin-template" "%name%"
+move "vitemin-template" name
+echo "changed vitemin-template name"
 echo. >> ".\%name%\.gitignore"
 echo *.env >> ".\%name%\.gitignore"
 
 REM creating package.json
 echo > package.json
-echo { > package.json
+echo { >> package.json
 echo   "name": "%name%", >> package.json
 echo   "private": true, >> package.json
 echo   "version": "1.0.0", >> package.json
