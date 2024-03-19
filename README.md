@@ -36,18 +36,28 @@ VITEMIN QUICKSTART
 
 <br>
 
-MOVE TO ENVIRONMENT
+GO TO VITEMIN DIRECTORY (WHERE YOU GIT CLONED IT)
+<br>
+<img src="https://i.imgur.com/WnkMP3c.png" alt="Vitemin Folder Print" />
+<br>
+RUN CMD AS ADMINISTRATOR
+<br>
+<img src="https://i.imgur.com/h9jZDpG.png" alt="Run CMD As Admin" />
+<br>
+TYPE
 ```cmd
-copy vitemin.bat C:\Windows\System32
+explorer .
 ```
-IF DOESN'T WORK, TRY PASSING IT TO USER PATH
-```shell
-move vitemin.bat C:/Users/user/
-```
-EXECUTE
-```cmd
-vitemin.bat
-```
+<br>
+AND DRAG-N-DROP THE vitemin.bat FILE TO System32 PATH
+<br>
+<br>
+<img src="https://i.imgur.com/wuI4nZo.png" alt="Drag-n-dropping vitemin.bat File to System32" />
+<br>
+QUICKSTART/EXECUTE
+<br>
+<br>
+<pre>vitemin.bat</pre>
 
 ## License
 
