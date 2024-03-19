@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# made by: https://www.zacchello.site/linktree
+# made by: https://www.zacchello.site/
 
 read -p "package.json Name: " name
 
@@ -14,6 +14,9 @@ git clone https://github.com/zacchellodev/vitemin-template.git
 mv "vitemin-template" "$name"
 echo "" >> "./$name/.gitignore"
 echo "*.env" >> "./$name/.gitignore"
+
+# REMOVE .git FOLDER
+rm -rf "$name/.git"
 
 # creating package.json
 echo '{' > package.json
