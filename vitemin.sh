@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# made by: https://www.zacchello.site/linktree
+# made by: https://www.zacchello.site/
 
 read -p "package.json Name: " name
 
