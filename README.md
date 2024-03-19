@@ -59,7 +59,7 @@ AND DRAG-N-DROP THE vitemin.bat FILE TO System32 PATH
 QUICKSTART/EXECUTE
 <br>
 <br>
-<pre>vitemin.bat</pre>
+<pre>vitemin.bat PROJECT_NAME</pre>
 
 ## License
 
