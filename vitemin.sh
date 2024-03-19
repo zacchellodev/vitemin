@@ -15,9 +15,6 @@ mv "vitemin-template" "$name"
 echo "" >> "./$name/.gitignore"
 echo "*.env" >> "./$name/.gitignore"
 
-# REMOVE .git FOLDER
-rm -rf "$name/.git"
-
 # creating package.json
 echo '{' > package.json
 echo '  "name": "'"$name"'",' >> package.json
@@ -43,6 +40,9 @@ echo '    "vite": "^5.1.6"' >> package.json
 echo '  }' >> package.json
 echo '}' >> package.json
 mv "package.json" "$name"
+
+# REMOVE .git FOLDER
+rm -rf "$name/.git"
 
 # quickstart
 clear
