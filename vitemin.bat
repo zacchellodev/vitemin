@@ -39,7 +39,6 @@ echo } >> package.json
 move "package.json" "%name%"
 
 REM quickstart
-
 echo To get started:
 echo cd %name%
 echo yarn
