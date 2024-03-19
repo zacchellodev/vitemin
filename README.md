@@ -60,6 +60,12 @@ QUICKSTART/EXECUTE
 <br>
 <br>
 <pre>vitemin PROJECT_NAME</pre>
+<br>
+<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux Badge" />
+<br>
+<br>
+UNDER DEVELOPMENT/TESTING...
+<br>
 
 ## License
 
