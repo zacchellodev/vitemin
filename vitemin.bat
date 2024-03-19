@@ -1,41 +1,42 @@
 @echo off
+setlocal enabledelayedexpansion
 
-REM made by: https://www.zacchello.site/
+REM get project name
+if "%1" == "" (
+  echo You forgot to type the name of your project, "vitemin NAME".
+  exit /b
+)
 
-set /p name="package.json Name: "
+REM define project name
+set "projName=%1"
+set "gitRepo=https://github.com/xongs08/vitemin-win-template.git"
 
-REM "default" value in case of empty name
-if "%name%"=="" set "name=my-vitemin-project"
+REM clone the repo to directory
+git clone %gitRepo% "%projName%"
 
-REM cloning template and changing it name
-git clone https://github.com/xongs08/vitemin-win-template.git
-move vitemin-template %name%
+REM add "*.env" to .gitignore
+echo. >> "%projName%\.gitignore"
+echo *.env >> "%projName%\.gitignore"
 
-REM add .env to gitignore
-echo. >> .\%name%\.gitignore
-echo *.env >> .\%name%\.gitignore
-
-REM add package.json "name": "%name%"
-setlocal EnableDelayedExpansion
-
-set "tempFile=%temp%\tempfile.txt"
+REM editing package.json
+set "tempFile=%temp%\tempfile50000.txt"
 set "insertTxt1={"
-set "insertText2=""name"": ""%name%"","
+set "insertTxt2=  "name:": "%name%","
+set "packageJson=%name%\package.json"
 
 echo %insertTxt1%>%tempFile%
 echo %insertTxt2%>>%tempFile%
-type package.json>>%tempFile%
-move /y %tempFile% package.json >nul
+type %packageJson%>>%tempFile%
+move /y %tempFile% %packageJson% >nul
 
-endlocal
+REM deleting hidden ".git" folder
+rd /s /q "%projName%\.git"
 
-REM REMOVE .git FOLDER
-rd /s /q "%name%\.git"
+REM "printing" commands to install dependencies & other
+cls
 
-REM quickstart
-echo To get started:
-
-echo cd %name%
+echo Project created
+echo cd %projName%
 echo yarn
 echo yarn dev
 
