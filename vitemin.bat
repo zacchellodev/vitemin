@@ -1,8 +1,10 @@
 @echo off
 
+REM made by: https://www.zacchello.site/
+
 set /p name="package.json Name: "
 
-REM set default value in case of empty name
+REM "default" value in case of empty name
 if "%name%"=="" set "name=my-vitemin-project"
 
 REM cloning template
@@ -11,36 +13,42 @@ move "vitemin-template" "%name%"
 echo. >> ".\%name%\.gitignore"
 echo "*.env" >> ".\%name%\.gitignore"
 
+REM REMOVE .git FOLDER
+rd /s /q "%name%\.git"
+
 REM creating package.json
-echo { > package.json
-echo "  ""name"": ""%name%""," >> package.json
-echo "  ""private"": true," >> package.json
-echo "  ""version"": ""1.0.0""," >> package.json
-echo "  ""type"": ""module""," >> package.json
-echo "  ""scripts"": {" >> package.json
-echo "    ""dev"": ""vite""," >> package.json
-echo "    ""build"": ""tsc && vite build""," >> package.json
-echo "    ""preview"": ""vite preview""" >> package.json
-echo "  }," >> package.json
-echo "  ""dependencies"": {" >> package.json
-echo "    ""react"": ""^18.2.0""," >> package.json
-echo "    ""react-dom"": ""^18.2.0""" >> package.json
-echo "  }," >> package.json
-echo "  ""devDependencies"": {" >> package.json
-echo "    ""@types/react"": ""^18.2.67""," >> package.json
-echo "    ""@types/react-dom"": ""^18.2.22""," >> package.json
-echo "    ""@vitejs/plugin-react-swc"": ""^3.6.0""," >> package.json
-echo "    ""tsc"": ""^2.0.4""," >> package.json
-echo "    ""typescript"": ""^5.4.2""," >> package.json
-echo "    ""vite"": ""^5.1.6""" >> package.json
-echo "  }" >> package.json
-echo } >> package.json
+(
+  echo {
+  echo   "name": "%name%",
+  echo   "private": true,
+  echo   "version": "1.0.0",
+  echo   "type": "module",
+  echo   "scripts": {
+  echo     "dev": "vite",
+  echo     "build": "tsc && vite build",
+  echo     "preview": "vite preview"
+  echo   },
+  echo   "dependencies": {
+  echo     "react": "^18.2.0",
+  echo     "react-dom": "^18.2.0"
+  echo   },
+  echo   "devDependencies": {
+  echo     "@types/react": "^18.2.67",
+  echo     "@types/react-dom": "^18.2.22",
+  echo     "@vitejs/plugin-react-swc": "^3.6.0",
+  echo     "tsc": "^2.0.4",
+  echo     "typescript": "^5.4.2",
+  echo     "vite": "^5.1.6"
+  echo   }
+  echo }
+) > package.json
 move "package.json" "%name%"
 
 REM quickstart
 cls
 
 echo To get started:
+
 echo cd %name%
 echo yarn
 echo yarn dev
